@@ -1,0 +1,17 @@
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Presentation.deps.json
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Presentation.dll
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Presentation.pdb
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Application.dll
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Domain.dll
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Application.pdb
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\bin\Debug\net6.0\Domain.pdb
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.csproj.CopyComplete
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.dll
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\refint\Presentation.dll
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\Presentation.pdb
+E:\Projetos Audrey\ToDoTaskBoard_Inovati\Back\src\Presentation\obj\Debug\net6.0\ref\Presentation.dll
