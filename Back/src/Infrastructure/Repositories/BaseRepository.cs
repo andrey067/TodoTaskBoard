@@ -20,7 +20,7 @@ namespace Infrastructure.Repositories
             {
                 var result = await _dataSet.SingleOrDefaultAsync(p => p.Id.Equals(id));
                 if (result != null)
-                    _dataSet.Remove(result);
+                    //_dataSet.Remove(result);
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)

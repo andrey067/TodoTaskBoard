@@ -8,6 +8,9 @@ namespace Domain.Validator
         public TarefaValidator()
         {
             RuleFor(tarefa => tarefa.Nome).NotEmpty().WithMessage("O campo Nome é obrigatório.");
+            RuleFor(tarefa => tarefa.Id)
+               .NotEmpty().GreaterThan(0)
+               .WithMessage("O campo CardId é obrigatório.");
         }
     }
 }

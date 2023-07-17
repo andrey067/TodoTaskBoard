@@ -8,7 +8,8 @@ namespace Infrastructure
     {
         public void Register(TypeAdapterConfig config)
         {
-            config.ForType<ColaboradorResultDto, Colaborador>();
+            config.ForType<ColaboradorResultDto, Colaborador>()
+                .Map(c => c.Link, c => string.IsNullOrEmpty(c.Link) ? "Link não cadastrado" : c.Link);
         }
     }
 }

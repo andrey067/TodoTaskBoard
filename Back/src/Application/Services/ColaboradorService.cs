@@ -6,7 +6,7 @@ using Domain.Shared;
 
 namespace Application.Services
 {
-    public class ColaboradorService : IColaboradorService
+    public class ColaboradorService: IColaboradorService
     {
         private readonly IRepository<Colaborador> _repositorio;
 
@@ -20,16 +20,19 @@ namespace Application.Services
             if (colaboradorExiste == false)
                 return Result.Failure();
 
-            var (colaborador, heValido) = await Atualizar(colaboradorDto);
+            var (colaborador, heValido) = await AtualizarEntidade(colaboradorDto);
+
+            if (heValido)
+                await _repositorio.UpdateAsync(colaborador);
 
             return heValido ? Result.Success() : Result.Failure(colaborador.Errors.ToArray());
         }
 
-        private async Task<(Colaborador colaborador, bool heValido)> Atualizar(AtualizarColaboradorDto colaboradorDto)
+        private async Task<(Colaborador colaborador, bool heValido)> AtualizarEntidade(AtualizarColaboradorDto colaboradorDto)
         {
             var colaboradorEntidade = await _repositorio.SelectAsync((long)colaboradorDto.Id);
 
-            colaboradorEntidade.AtualizarColaborador(colaboradorDto.Nome, colaboradorDto.Telefone, colaboradorDto.Situacao, colaboradorDto.Link);
+            colaboradorEntidade.AtualizarColaborador(colaboradorDto.Nome, colaboradorDto.Telefone, colaboradorDto.Situacao, colaboradorDto.CargoId, colaboradorDto.Link);
             colaboradorEntidade.Validar();
             return (colaboradorEntidade, colaboradorEntidade.IsValid);
         }
@@ -47,7 +50,7 @@ namespace Application.Services
 
         private (Colaborador colaborador, bool heValido) CriarEValidarColaborador(CriarColaboradorDto colaboradorDto)
         {
-            var colaborador = new Colaborador(colaboradorDto.Nome, colaboradorDto.Telefone, colaboradorDto.Situacao, colaboradorDto.Link);
+            var colaborador = new Colaborador(colaboradorDto.Nome, colaboradorDto.Telefone, colaboradorDto.Situacao, colaboradorDto.cargoId, colaboradorDto.Link);
             colaborador.Validar();
             return (colaborador, colaborador.IsValid);
         }

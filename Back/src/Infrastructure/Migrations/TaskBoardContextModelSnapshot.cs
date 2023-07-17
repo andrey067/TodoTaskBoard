@@ -94,6 +94,9 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<long>("CargoId")
+                        .HasColumnType("bigint");
+
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -116,6 +119,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CargoId");
 
                     b.ToTable("Colaboradores");
                 });
@@ -146,6 +151,17 @@ namespace Infrastructure.Migrations
                     b.HasIndex("CardId");
 
                     b.ToTable("Tarefas");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Colaborador", b =>
+                {
+                    b.HasOne("Domain.Entities.Cargo", "Cargo")
+                        .WithMany()
+                        .HasForeignKey("CargoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cargo");
                 });
 
             modelBuilder.Entity("Domain.Entities.Tarefa", b =>

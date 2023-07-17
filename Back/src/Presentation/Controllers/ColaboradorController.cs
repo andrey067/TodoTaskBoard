@@ -11,7 +11,8 @@ namespace Presentation.Controllers
     {
         private readonly IColaboradorService _colaboradorService;
 
-        public ColaboradorController(IBaseService<Colaborador, ColaboradorResultDto> baseService) : base(baseService) { }
+        public ColaboradorController(IBaseService<Colaborador, ColaboradorResultDto> baseService, IColaboradorService colaboradorService) : base(baseService)
+          => _colaboradorService = colaboradorService;
 
 
         [HttpPost]
