@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"index.tsx -> @/components/Column\":{\"id\":\"index.tsx -> @/components/Column\",\"files\":[\"static/chunks/src_components_Column_tsx.js\"]}}"

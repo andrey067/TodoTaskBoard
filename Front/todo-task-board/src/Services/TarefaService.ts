@@ -1,3 +1,4 @@
+import { Result } from "@/types/Result";
 import { Task } from "@/types/Task";
 
 export default class TarefaService {
@@ -66,7 +67,17 @@ export default class TarefaService {
     }
   }
 
-  async obterTodos(): Promise<Task[]> {
+  async obterTodos(): Promise<Result<Task[]>> {
+    const url = `${this.baseURL}/obtertodos`;
+
+    try {
+      return await this.tarefahandler(url, "GET");
+    } catch (error) {
+      throw new Error("Failed to get task.");
+    }
+  }
+
+  async obterTodos(): Promise<Result<Task[]>> {
     const url = `${this.baseURL}/obtertodos`;
 
     try {

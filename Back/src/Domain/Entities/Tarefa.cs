@@ -4,27 +4,27 @@ using Domain.Validator;
 
 namespace Domain.Entities
 {
-    public class Tarefa : BaseEntity , IValidar
+    public class Tarefa : BaseEntity, IValidar
     {
         public string Nome { get; private set; }
-        public long CardId { get; set; }
-        public virtual Card Card { get; private set; }
+        public List<Card> Cards { get; private set; }        
 
-        public Tarefa(string nome, long cardId)
+        public Tarefa(string nome)
         {
             Nome = nome;
-            CardId = cardId;
+            Cards = new();
         }
 
-        public void AtualizarTarefa(string nome, long cardId)
-        {
-            Nome = nome;
-            CardId = cardId;
-        }
+        public void AtualizarTarefa(string nome)
+            => Nome = nome;
+
+        public void RemoverCard(Card card)
+            => Cards.Remove(card);
+
+        public void AdicionarCard(Card card)
+            => Cards.Add(card);
 
         public void Validar()
-        {
-            Validate(new TarefaValidator(), this);
-        }
+        => Validate(new TarefaValidator(), this);
     }
 }

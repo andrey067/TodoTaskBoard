@@ -15,6 +15,8 @@ namespace Domain.Repository
 
         Task<IEnumerable<T>> SelectAllAsync();
 
-        Task<bool> ExistAsync(long id);        
+        Task<bool> ExistAsync(long id);
+
+        DbSet<T> GetDbSet();
     }
 }

@@ -1,6 +1,8 @@
-export type Task = {
-  id: number;
+import { BaseDto } from "./BaseDto";
+import { Card } from "./Card";
+
+export interface Tarefa extends BaseDto {
   nome: string;
-  createAt: Date | null;
-  updateAt: Date | null;
-};
+  cardId: number;
+  card: Card[];
+}

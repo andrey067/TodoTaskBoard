@@ -1,4 +1,4 @@
-import { Column } from "./Column";
+import { Column } from "./Card";
 import { Task } from "./Task";
 
 export type ColumnProps = {

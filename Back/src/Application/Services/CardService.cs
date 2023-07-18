@@ -50,7 +50,7 @@ namespace Application.Services
 
         private (Card card, bool heValido) CriarEValidarCard(CriarCardDto card)
         {
-            var novoCard = new Card(card.Nome, card.Posicao, card.Cor, card.Atividade);
+            var novoCard = new Card(card.Nome, card.Posicao, card.Cor, card.Atividade, card.TarefaId);
             novoCard.Validar();
 
             return (novoCard, novoCard.IsValid);

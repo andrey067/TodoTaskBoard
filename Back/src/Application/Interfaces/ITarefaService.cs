@@ -7,5 +7,6 @@ namespace Application.Interfaces
     {
         Task<Result> AtualizarTarefa(AtualizarTarefaDto tarefa);
         Task<Result> CriarTarefa(CriarTarefaDto tarefa);
+        Task<Result<IEnumerable<TarefaResultDto>>> ObterTarefasECards();
     }
 }

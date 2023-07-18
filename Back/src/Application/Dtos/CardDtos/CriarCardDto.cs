@@ -1,4 +1,4 @@
 ﻿namespace Application.Dtos.CardDtos
 {
-    public sealed record CriarCardDto(string Nome, int Posicao, string Cor, string Atividade) : BaseDto;
+    public sealed record CriarCardDto(string Nome, int Posicao, string Cor, string Atividade, long TarefaId) : BaseDto;
 }

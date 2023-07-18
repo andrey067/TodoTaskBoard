@@ -48,10 +48,15 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Posicao")
                         .HasColumnType("int");
 
+                    b.Property<long>("TarefaId")
+                        .HasColumnType("bigint");
+
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TarefaId");
 
                     b.ToTable("Cards");
                 });
@@ -133,9 +138,6 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CardId")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -148,9 +150,18 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CardId");
-
                     b.ToTable("Tarefas");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Card", b =>
+                {
+                    b.HasOne("Domain.Entities.Tarefa", "Tafera")
+                        .WithMany("Cards")
+                        .HasForeignKey("TarefaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tafera");
                 });
 
             modelBuilder.Entity("Domain.Entities.Colaborador", b =>
@@ -166,13 +177,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Tarefa", b =>
                 {
-                    b.HasOne("Domain.Entities.Card", "Card")
-                        .WithMany()
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Card");
+                    b.Navigation("Cards");
                 });
 #pragma warning restore 612, 618
         }

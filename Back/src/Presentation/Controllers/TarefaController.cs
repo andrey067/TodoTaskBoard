@@ -17,6 +17,14 @@ namespace Presentation.Controllers
             _tarefaService = tarefaService;
         }
 
+        [HttpGet("obtertarefas-cards")]
+        public async Task<IActionResult> ObterTarefasECards()
+        {
+            var result = await _tarefaService.ObterTarefasECards();
+
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Errors);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CriarTarefaDto tarefaDto)
         {

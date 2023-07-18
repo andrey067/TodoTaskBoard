@@ -20,7 +20,7 @@ namespace Infrastructure.Repositories
             {
                 var result = await _dataSet.SingleOrDefaultAsync(p => p.Id.Equals(id));
                 if (result != null)
-                    //_dataSet.Remove(result);
+                    _dataSet.Remove(result);
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)
@@ -59,5 +59,7 @@ namespace Infrastructure.Repositories
         }
 
         public async Task<bool> ExistAsync(long id) => await _dataSet.AsNoTracking().AnyAsync(p => p.Id.Equals(id));
+
+        public DbSet<T> GetDbSet() => _dataSet;
     }
 }
