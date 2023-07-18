@@ -6,7 +6,7 @@ using Domain.Shared;
 
 namespace Application.Services
 {
-    public class CardService : ICardService
+    public class CardService: ICardService
     {
         private readonly IRepository<Card> _repositorio;
 
@@ -22,12 +22,15 @@ namespace Application.Services
             if (!cardExiste)
                 return Result.Failure();
 
-            var (cardAtualizado, heValido) = await Atualizar(card);
+            var (cardAtualizado, heValido) = await AtualizarEntidade(card);
+
+            if (heValido)
+                await _repositorio.UpdateAsync(cardAtualizado);
 
             return heValido ? Result.Success() : Result.Failure(cardAtualizado.Errors.ToArray());
         }
 
-        private async Task<(Card card, bool heValido)> Atualizar(AtualizarCardDto card)
+        private async Task<(Card card, bool heValido)> AtualizarEntidade(AtualizarCardDto card)
         {
             var cardEntidade = await _repositorio.SelectAsync((long)card.Id);
 

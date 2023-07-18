@@ -5,4 +5,5 @@ export interface Card extends BaseDto {
   posicao: number;
   cor: string;
   atividade: string;
+  tarefaId: number
 }

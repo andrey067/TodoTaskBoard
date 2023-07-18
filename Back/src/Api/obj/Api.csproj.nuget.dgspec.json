@@ -10,14 +10,14 @@
         "projectUniqueName": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Api\\Api.csproj",
         "projectName": "Api",
         "projectPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\audre\\.nuget\\packages\\",
         "outputPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\audre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,7 +27,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gesigsenac.pkgs.visualstudio.com/_packaging/SigPackage/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -90,14 +91,14 @@
         "projectUniqueName": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Application\\Application.csproj",
         "projectName": "Application",
         "projectPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\audre\\.nuget\\packages\\",
         "outputPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\audre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -107,7 +108,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gesigsenac.pkgs.visualstudio.com/_packaging/SigPackage/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -168,14 +170,14 @@
         "projectUniqueName": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
         "projectPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\audre\\.nuget\\packages\\",
         "outputPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\audre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -185,7 +187,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gesigsenac.pkgs.visualstudio.com/_packaging/SigPackage/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -238,14 +241,14 @@
         "projectUniqueName": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
         "projectPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\audre\\.nuget\\packages\\",
         "outputPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\audre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -255,7 +258,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gesigsenac.pkgs.visualstudio.com/_packaging/SigPackage/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -332,14 +336,14 @@
         "projectUniqueName": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Presentation\\Presentation.csproj",
         "projectName": "Presentation",
         "projectPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Presentation\\Presentation.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\audre\\.nuget\\packages\\",
         "outputPath": "E:\\Projetos Audrey\\ToDoTaskBoard_Inovati\\Back\\src\\Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\audre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -349,7 +353,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gesigsenac.pkgs.visualstudio.com/_packaging/SigPackage/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {

@@ -2,5 +2,5 @@
 
 namespace Application.Dtos.TarefaDto
 {
-    public record TarefaResultDto(long? Id, DateTime? CreateAt, DateTime? UpdateAt, string Nome, long CardId, IEnumerable<CardResultDto> Cards) : BaseDto(Id, CreateAt, UpdateAt);
+    public record TarefaResultDto(long? Id, DateTime? CreateAt, DateTime? UpdateAt, string Nome, IEnumerable<CardResultDto> Cards) : BaseDto(Id, CreateAt, UpdateAt);
 }

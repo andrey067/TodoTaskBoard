@@ -1,3 +1,4 @@
+import TarefaService from "@/Services/TarefaService";
 import { AddIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -9,6 +10,8 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
+  FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   InputGroup,
@@ -17,57 +20,94 @@ import {
   Select,
   Stack,
   Textarea,
+  UseToastOptions,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { Tarefa } from "../types/Tarefa";
 
 function CreateTaskDrawer() {
+  const tarefaService = new TarefaService();
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [nome, setNome] = useState<string>("");
+  const [nomeError, setNomeError] = useState<string>("");
 
+  const showNotification = (
+    toast: ReturnType<typeof useToast>,
+    options: UseToastOptions
+  ) => {
+    toast({
+      position: "top-right",
+      ...options,
+      duration: 9000,
+      isClosable: true,
+    });
+  };
+
+  const salvarTarefaHandler = async () => {
+    if (!nome) {
+      setNomeError("Campo obrigatório");
+    } else {
+      setNomeError("");
+    }
+    const tarefaASerCriada: Tarefa = {
+      id: 0,
+      createAt: null,
+      updateAt: null,
+      nome: nome,
+      cards: [],
+    };
+    try {
+      let resultrequest = await tarefaService.cadastrarTarefa(tarefaASerCriada);
+
+      resultrequest.isSuccess
+        ? showNotification(toast, {
+            title: "Cadastro",
+            description: "Colaborador cadastrado com sucesso",
+            status: "success",
+          })
+        : showNotification(toast, {
+            title: "Cadastro",
+            description: "Erro ao cadastrar o colaborador",
+            status: "error",
+          });
+
+      onClose();
+    } catch (error) {
+      showNotification(toast, {
+        title: "Cadastro",
+        description: "Erro ao cadastrar o colaborador",
+        status: "error",
+      });
+      console.error("Falha ao cadastrar o colaborador:", error);
+    }
+  };
   return (
     <>
       <Button leftIcon={<AddIcon />} colorScheme="teal" onClick={onOpen}>
-        Criar Task
+        Criar Tarefa
       </Button>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">
-            Create a new account
+            Criar uma nova Tarefa
           </DrawerHeader>
 
           <DrawerBody>
             <Stack spacing="24px">
               <Box>
-                <FormLabel htmlFor="username">Name</FormLabel>
-                <Input id="username" placeholder="Please enter user name" />
-              </Box>
-
-              <Box>
-                <FormLabel htmlFor="url">Url</FormLabel>
-                <InputGroup>
-                  <InputLeftAddon>http://</InputLeftAddon>
+                <FormControl isRequired isInvalid={!!nomeError}>
+                  <FormLabel>Tarefa</FormLabel>
                   <Input
-                    type="url"
-                    id="url"
-                    placeholder="Please enter domain"
+                    placeholder="Nome da Tarefa"
+                    onChange={(e) => setNome(e.target.value)}
                   />
-                  <InputRightAddon>.com</InputRightAddon>
-                </InputGroup>
-              </Box>
-
-              <Box>
-                <FormLabel htmlFor="owner">Select Owner</FormLabel>
-                <Select id="owner" defaultValue="segun">
-                  <option value="segun">Segun Adebayo</option>
-                  <option value="kola">Kola Tioluwani</option>
-                </Select>
-              </Box>
-
-              <Box>
-                <FormLabel htmlFor="desc">Description</FormLabel>
-                <Textarea id="desc" />
+                </FormControl>
+                <FormErrorMessage>{nomeError}</FormErrorMessage>
               </Box>
             </Stack>
           </DrawerBody>
@@ -76,7 +116,9 @@ function CreateTaskDrawer() {
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue">Submit</Button>
+            <Button colorScheme="blue" onClick={salvarTarefaHandler}>
+              Criar
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

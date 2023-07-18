@@ -40,5 +40,13 @@ namespace Presentation.Controllers
 
             return result.IsSuccess ? Ok(result) : BadRequest(result.Errors);
         }
+
+        [HttpPatch]
+        public async Task<IActionResult> Patch([FromBody] AtualizarTarefaDto tarefaDto)
+        {
+            var result = await _tarefaService.AtualizarNomeTarefa(tarefaDto);
+
+            return result.IsSuccess ? Ok(result) : BadRequest(result.Errors);
+        }
     }
 }

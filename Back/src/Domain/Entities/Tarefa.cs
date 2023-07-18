@@ -15,11 +15,11 @@ namespace Domain.Entities
             Cards = new();
         }
 
-        public void AtualizarTarefa(string nome)
+        public void AtualizarNomeTarefa(string nome)
             => Nome = nome;
 
-        public void RemoverCard(Card card)
-            => Cards.Remove(card);
+        public void RemoverCards()
+            => Cards.Clear();
 
         public void AdicionarCard(Card card)
             => Cards.Add(card);

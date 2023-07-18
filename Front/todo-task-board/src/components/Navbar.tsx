@@ -3,7 +3,7 @@ import React from "react";
 import CreateTaskDrawer from "./CreateTaskDrawer";
 import MenuColaborador from "./MenuColaborador/MenuColaborador";
 
-function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <div>
       <Flex
@@ -24,6 +24,6 @@ function Navbar() {
       </Flex>
     </div>
   );
-}
+};
 
 export default Navbar;

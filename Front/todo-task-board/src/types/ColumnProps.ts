@@ -1,7 +1,5 @@
-import { Column } from "./Card";
-import { Task } from "./Task";
+import { Tarefa } from "./Tarefa";
 
 export type ColumnProps = {
-  column: Column;
-  tasks: Task[];
+  tarefa: Tarefa;
 };

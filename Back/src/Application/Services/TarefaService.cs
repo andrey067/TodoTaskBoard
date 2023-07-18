@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services
 {
-    public class TarefaService : ITarefaService
+    public class TarefaService: ITarefaService
     {
         private readonly IRepository<Tarefa> _repositorio;
 
@@ -22,7 +22,10 @@ namespace Application.Services
             if (!tarefaExiste)
                 return Result.Failure();
 
-            var (tarefaAtualizada, heValido) = await Atualizar(tarefa);
+            var (tarefaAtualizada, heValido) = await AtualizarEntidade(tarefa);
+
+            if (heValido)
+                await _repositorio.UpdateAsync(tarefaAtualizada);
 
             return heValido ? Result.Success() : Result.Failure(tarefaAtualizada.Errors.ToArray());
         }
@@ -33,11 +36,20 @@ namespace Application.Services
             return Result<IEnumerable<TarefaResultDto>>.Success(tarefas.Adapt<IEnumerable<TarefaResultDto>>());
         }
 
-        private async Task<(Tarefa tarefa, bool heValido)> Atualizar(AtualizarTarefaDto tarefa)
+        private async Task<(Tarefa tarefa, bool heValido)> AtualizarEntidade(AtualizarTarefaDto tarefa)
         {
             var tarefaEntidade = await _repositorio.SelectAsync((long)tarefa.Id);
 
-            tarefaEntidade.AtualizarTarefa(tarefa.Nome);
+            tarefaEntidade.AtualizarNomeTarefa(tarefa.Nome);
+            tarefaEntidade.RemoverCards();
+            tarefa.Cards.ForEach(card =>
+            {
+                tarefaEntidade.RemoverCards();
+                var novoCard = new Card(card.Nome, card.Posicao, card.Cor, card.Atividade, card.tarefaId);
+                novoCard.Validar();
+                if (novoCard.IsValid)
+                    tarefaEntidade.AdicionarCard(novoCard);
+            });
             tarefaEntidade.Validar();
 
             return (tarefaEntidade, tarefaEntidade.IsValid);
@@ -60,6 +72,19 @@ namespace Application.Services
             novaTarefa.Validar();
 
             return (novaTarefa, novaTarefa.IsValid);
+        }
+
+        public async Task<Result> AtualizarNomeTarefa(AtualizarTarefaDto tarefa)
+        {
+            var tarefaEntidade = await _repositorio.SelectAsync((long)tarefa.Id);
+
+            tarefaEntidade.AtualizarNomeTarefa(tarefa.Nome);
+            tarefaEntidade.Validar();
+            if (tarefaEntidade.IsValid)
+                return Result.Failure(tarefaEntidade.Errors.ToArray());
+
+            await _repositorio.UpdateAsync(tarefaEntidade);
+            return tarefaEntidade.IsValid ? Result.Success() : Result.Failure(tarefaEntidade.Errors.ToArray());
         }
     }
 }

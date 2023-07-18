@@ -1,5 +1,5 @@
 import { Result } from "@/types/Result";
-import { Task } from "@/types/Task";
+import { Tarefa } from "@/types/Tarefa";
 
 export default class TarefaService {
   private baseURL: string = "https://localhost:7170/api/Tarefa";
@@ -8,11 +8,11 @@ export default class TarefaService {
     this.baseURL = this.baseURL;
   }
 
-  private async tarefahandler(
+  private async tarefahandler<T>(
     url: string,
     method: string,
-    data?: Task
-  ): Promise<any> {
+    data?: Tarefa
+  ): Promise<Result<T>> {
     try {
       const requestOptions: RequestInit = {
         method,
@@ -37,27 +37,37 @@ export default class TarefaService {
     }
   }
 
-  async cadastrarTarefa(data: Task): Promise<void> {
+  async cadastrarTarefa(data: Tarefa): Promise<Result<Tarefa>> {
     const url = `${this.baseURL}`;
 
     try {
-      await this.tarefahandler(url, "POST", data);
+      return await this.tarefahandler(url, "POST", data);
     } catch (error) {
       throw new Error("Failed to register task.");
     }
   }
 
-  async atualizarTarefa(data: Task): Promise<void> {
-    const url = `${this.baseURL}/${data.id}`;
+  async atualizarTarefa(data: Tarefa): Promise<Result<Tarefa>> {
+    const url = `${this.baseURL}`;
 
     try {
-      await this.tarefahandler(url, "PUT", data);
+      return await this.tarefahandler(url, "PUT", data);
     } catch (error) {
       throw new Error("Failed to update task.");
     }
   }
 
-  async obterTarefa(id: number): Promise<Task> {
+  async atualizarNomeTarefa(data: Tarefa): Promise<Result<Tarefa>> {
+    const url = `${this.baseURL}`;
+
+    try {
+      return await this.tarefahandler(url, "PATH", data);
+    } catch (error) {
+      throw new Error("Failed to update task.");
+    }
+  }
+
+  async obterTarefa(id: number): Promise<Result<Tarefa>> {
     const url = `${this.baseURL}/${id}`;
 
     try {
@@ -67,7 +77,7 @@ export default class TarefaService {
     }
   }
 
-  async obterTodos(): Promise<Result<Task[]>> {
+  async obterTodos(): Promise<Result<Tarefa[]>> {
     const url = `${this.baseURL}/obtertodos`;
 
     try {
@@ -77,8 +87,8 @@ export default class TarefaService {
     }
   }
 
-  async obterTodos(): Promise<Result<Task[]>> {
-    const url = `${this.baseURL}/obtertodos`;
+  async obtertarefasEcards(): Promise<Result<Tarefa[]>> {
+    const url = `${this.baseURL}/obtertarefas-cards`;
 
     try {
       return await this.tarefahandler(url, "GET");
@@ -87,11 +97,11 @@ export default class TarefaService {
     }
   }
 
-  async excluirTarefa(id: number): Promise<void> {
-    const url = `${this.baseURL}/${id}`;
+  async excluirTarefa(id: number): Promise<Result<Tarefa>> {
+    const url = `${this.baseURL}?Id=${id}`;
 
     try {
-      await this.tarefahandler(url, "DELETE");
+      return await this.tarefahandler(url, "DELETE");
     } catch (error) {
       throw new Error("Failed to delete task.");
     }
